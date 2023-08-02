@@ -14,23 +14,23 @@ const words = ['application', 'programming', 'interface', 'wizard'];
 let selectedWord = words[Math.floor(Math.random() * words.length)];
 console.log(selectedWord);
 
-const correctLetters = [];
+const correctLetters = ['r'];
 const wrongLetters = [];
 
 //Show the hidden word
-function dispalyWord () {
-  words.innerHtml = `
-  ${selectedWord
-    .split('')
-    .map(letter => `
-    <span class = "letter">
-    ${correctLetters.includes(letter) ? letter : ''}
-    </span>
-    `
-    )
-    .join('')
-  }
+function displayWord() {
+  wordEl.innerHTML = `
+    ${selectedWord
+      .split('')
+      .map(
+        letter => `
+          <span class="letter">
+            ${correctLetters.includes(letter) ? letter : ''}
+          </span>
+        `
+      )
+      .join('')}
   `;
 }
 
-dispalyWord();
+displayWord();
