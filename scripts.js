@@ -12,9 +12,8 @@ const figureParts = document.querySelectorAll('.figure-part');
 const words = ['application', 'programming', 'interface', 'wizard'];
 
 let selectedWord = words[Math.floor(Math.random() * words.length)];
-console.log(selectedWord);
 
-const correctLetters = ['r'];
+const correctLetters = [];
 const wrongLetters = [];
 
 //Show the hidden word
@@ -31,6 +30,12 @@ function displayWord() {
       )
       .join('')}
   `;
+  const innerWord = wordEl.innerText.replace(/\n/g, '');
+  
+  if (innerWord === selectedWord) {
+    finalMessage.innerText = 'Congratulations! You Won!';
+    popup.style.display = 'flex';
+  }
 }
 
 displayWord();
