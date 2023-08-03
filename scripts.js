@@ -99,20 +99,21 @@ window.addEventListener('keydown', e => {
   }
 });
 
+function playAgain () {
+  //Empty the arrays
+  correctLetters.splice(0);
+  wrongLetters.splice(0);
+
+  selectedWord = words[Math.floor(Math.random() * words.length)];
+
+  displayWord();
+
+  updateWrongLettersEl();
+
+  popup.style.display = 'none';
+};
+
 //Restart game - Play again
-  playAgainBtn.addEventListener('click', () => {
-    
-    //Empty the arrays
-    correctLetters.splice(0);
-    wrongLetters.splice(0);
-
-    selectedWord = words[Math.floor(Math.random() * words.length)];
-
-    displayWord();
-
-    updateWrongLettersEl();
-
-    popup.style.display = 'none';
-  });
+playAgainBtn.addEventListener('click', playAgain);
 
 displayWord();
